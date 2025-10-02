@@ -26,7 +26,7 @@ export class OpenAiProvider {
       const prompt = this.buildWorkoutPrompt(dto);
       
       const response = await this.openai.chat.completions.create({
-        model: 'gpt-4-turbo-preview',
+        model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',
@@ -76,7 +76,7 @@ export class OpenAiProvider {
       const prompt = this.buildDietPrompt(dto);
       
       const response = await this.openai.chat.completions.create({
-        model: 'gpt-4-turbo-preview',
+        model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',
@@ -137,7 +137,7 @@ export class OpenAiProvider {
       const prompt = this.buildRecommendationPrompt(dto);
       
       const response = await this.openai.chat.completions.create({
-        model: 'gpt-4-turbo-preview',
+        model: 'gpt-4o-mini',
         messages: [
           {
             role: 'system',

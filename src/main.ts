@@ -6,11 +6,17 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS
+  // Enable CORS for LevelUp main project integration
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'], // Add your frontend URLs
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    origin: [
+      'http://localhost:3000',  // React dev server default
+      'http://localhost:5173',  // Vite dev server default
+      'http://localhost:4173',  // Vite preview
+      'http://localhost:8080',  // Alternative dev port
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   });
 
   // Global prefix for all routes
@@ -43,7 +49,7 @@ async function bootstrap() {
     customCss: '.swagger-ui .topbar { display: none }',
   });
 
-  const port = process.env.PORT || 3001;
+  const port = process.env.AI_SERVICE_PORT || 3005;
   await app.listen(port);
 
   console.log(`🚀 LevelUp AI Microservice is running on: http://localhost:${port}`);

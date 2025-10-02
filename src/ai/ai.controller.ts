@@ -175,7 +175,7 @@ export class AiController {
           },
           models: {
             openai: 'gpt-4-turbo-preview',
-            gemini: 'gemini-pro'
+            gemini: 'gemini-2.5-flash'
           }
         }
       }

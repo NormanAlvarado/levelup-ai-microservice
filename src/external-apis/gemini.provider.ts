@@ -18,7 +18,7 @@ export class GeminiProvider {
     }
 
     this.httpClient = axios.create({
-      baseURL: 'https://generativelanguage.googleapis.com/v1beta',
+      baseURL: 'https://generativelanguage.googleapis.com/v1',
       timeout: 30000,
     });
   }
@@ -28,7 +28,7 @@ export class GeminiProvider {
       const prompt = this.buildWorkoutPrompt(dto);
       
       const response = await this.httpClient.post(
-        `/models/gemini-pro:generateContent?key=${this.apiKey}`,
+        `/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`,
         {
           contents: [
             {
@@ -87,7 +87,7 @@ export class GeminiProvider {
       const prompt = this.buildDietPrompt(dto);
       
       const response = await this.httpClient.post(
-        `/models/gemini-pro:generateContent?key=${this.apiKey}`,
+        `/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`,
         {
           contents: [
             {
@@ -156,7 +156,7 @@ export class GeminiProvider {
       const prompt = this.buildRecommendationPrompt(dto);
       
       const response = await this.httpClient.post(
-        `/models/gemini-pro:generateContent?key=${this.apiKey}`,
+        `/models/gemini-2.5-flash:generateContent?key=${this.apiKey}`,
         {
           contents: [
             {
